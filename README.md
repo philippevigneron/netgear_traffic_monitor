@@ -25,7 +25,7 @@ Connecting to netgear API requires netgear admin password.  It is set as an envi
 - Edit cron using `crontab -e`
 - Add the line:
 ```
-59 23 * * * export TRAFFIC_DATA_FILE=[PATH_DATA_FILE];NETGEAR_PSWD=[PASSWORD];/usr/bin/node /home/pi/traffic_monitor.js >> /home/pi/traffic_monitor.log 2>&1
+59 23 * * * export TRAFFIC_DATA_FILE=[PATH_DATA_FILE];export NETGEAR_PSWD=[PASSWORD];/usr/bin/node /home/pi/traffic_monitor.js >> /home/pi/traffic_monitor.log 2>&1
 ```
 - Replace [PASSWORD] by the netgear admin password
 - Replace [PATH_DATA_FILE] by the absolute or relative path to the file that will store the daily traffic readings
