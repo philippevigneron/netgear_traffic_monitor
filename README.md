@@ -10,19 +10,22 @@ Install node and the modules (npm install ...)
 Reference: https://www.npmjs.com/package/netgear
 
 The function getTrafficMeter() will return (in MB) as below:
+```
 {
   newTodayUpload: 1020,
   newTodayDownload: 10734,
   newMonthUpload: 9908,
   newMonthDownload: 103577
 }
+```
 
 Connecting to netgear API requires netgear admin password.  It is set as an environment variable when running the scrypt
 
 # Running the script daily:
-- Edit cron using 'crontab -e'
-- Add the line: 59 23 * * * export TRAFFIC_DATA_FILE=[PATH_DATA_FILE];NETGEAR_PSWD=[PASSWORD];/usr/bin/node /home/pi/traffic_monitor.js >> /home/pi/traffic_monitor.log 2>&1
+- Edit cron using `crontab -e`
+- Add the line:
+```59 23 * * * export TRAFFIC_DATA_FILE=[PATH_DATA_FILE];NETGEAR_PSWD=[PASSWORD];/usr/bin/node /home/pi/traffic_monitor.js >> /home/pi/traffic_monitor.log 2>&1```
 - Replace [PASSWORD] by the netgear admin password
-- Replace [PATH_DATA_FILE] by the netgear admin password
+- Replace [PATH_DATA_FILE] by the absolute or relative path to the file that will store the daily traffic readings
 - 59 23 * * * means that cron will execute the command every day of month at 23:59.
 - The last part of the command will save the output of the command in a log file.
