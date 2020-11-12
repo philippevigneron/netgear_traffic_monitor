@@ -1,12 +1,12 @@
 This program will query a netgear router, ask for traffic data daily, and store the data in a csv file for future trending and processing.
 
-#Required elements:
+# Required elements:
 - Node.js (I used v14)
 - Netgear, moment, fs modules
 
 Install node and the modules (npm install ...)
 
-#Using netgear module: 
+# Using netgear module: 
 Reference: https://www.npmjs.com/package/netgear
 
 The function getTrafficMeter() will return (in MB) as below:
@@ -19,7 +19,7 @@ The function getTrafficMeter() will return (in MB) as below:
 
 Connecting to netgear API requires netgear admin password.  It is set as an environment variable when running the scrypt
 
-#Running the script daily:
+# Running the script daily:
 - Edit cron using 'crontab -e'
 - Add the line: 59 23 * * * export TRAFFIC_DATA_FILE=[PATH_DATA_FILE];NETGEAR_PSWD=[PASSWORD];/usr/bin/node /home/pi/traffic_monitor.js >> /home/pi/traffic_monitor.log 2>&1
 - Replace [PASSWORD] by the netgear admin password
